@@ -1,17 +1,16 @@
 <template>
     <div>
-        <h3>Vue.js App is rendered!</h3>
-        <UsersList />
+        <h3>Vue.js App</h3>
+        <div id="nav">
+            <router-link to="/">Home</router-link> |
+            <router-link to="/users">Users</router-link>
+        </div>
+        <router-view />
     </div>
 </template>
 
 <script>
-import UsersList from '@/components/UsersList';
-
 export default {
-    name: 'App',
-    components: {
-        UsersList
-    }
+    name: 'App'
 }
 </script>
