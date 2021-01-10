@@ -3,14 +3,19 @@
   "version": "0.0.1",
   "description": "Vue.js quick start",
   "scripts": {
+    "start": "vue-cli-service serve"
   },
-  "keywords": ["vue.js"],
+  "keywords": [
+    "vue.js"
+  ],
   "author": "Denis Savenok <denissavenok@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.12.10",
-    "@babel/preset-env": "^7.12.11"
+    "@vue/cli-service": "^4.5.10",
+    "vue-template-compiler": "^2.6.12"
   },
   "dependencies": {
     "vue": "^2.6.12"
