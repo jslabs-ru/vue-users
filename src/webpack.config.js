@@ -11,14 +11,14 @@ const plugins = [
     new VueLoaderPlugin()
 ];
 
-const usersapp = [
+const client = [
     '@babel/polyfill',
     path.join(__dirname, 'main.js')
 ]
 
 if(HMR) {
     plugins.push(new webpack.HotModuleReplacementPlugin());
-    usersapp.push('webpack-hot-middleware/client?path=/__webpack_hmr');
+    client.push('webpack-hot-middleware/client?path=/__webpack_hmr');
 }
 
 var config = {
@@ -44,7 +44,7 @@ var config = {
         }
     },
     entry: {
-        usersapp
+        client
     },
     output: {
         path: path.join(__dirname, '/../public/js'),
