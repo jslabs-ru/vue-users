@@ -32,6 +32,16 @@ app.get('/', function(req, res) {
     res.status(200).send(html);
 });
 
+app.get('/api/v1/users', function(req, res) {
+    res.json([
+        'Alice',
+        'Robert',
+        'John',
+        'Lucy',
+        'Michael'
+    ]);
+})
+
 app.listen(PORT, function() {
     console.log('Dev server is running: http://localhost:%j', PORT);
 });
