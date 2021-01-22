@@ -39,6 +39,8 @@ const historyMiddleware = history({
     verbose: true
 });
 
+app.use(staticFileMiddleware);
+
 app.use((req, res, next) => {
     if (req.path.match(/^\/api\/v1\//)) {
         next();
