@@ -1,17 +1,31 @@
 <template>
     <div>
-        <h3>Vue.js App</h3>
-        <div id="nav">
-            <RouterLink to="/">Home</RouterLink> |
-            <RouterLink to="/users">Users</RouterLink> |
-            <RouterLink to="/users/add_user">Add user</RouterLink>
-        </div>
-        <RouterView />
+        <b-container>
+            <b-navbar toggleable="lg" type="dark" variant="info">
+                <b-navbar-brand to="/">App</b-navbar-brand>
+
+                <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+                <b-collapse id="nav-collapse" is-nav>
+                    <b-navbar-nav>
+                        <b-nav-item to="/users">Users</b-nav-item>
+                    </b-navbar-nav>
+                    <Search />
+                </b-collapse>
+            </b-navbar>
+
+            <RouterView />
+        </b-container>
     </div>
 </template>
 
 <script>
+import Search from '@/components/Search.vue';
+
 export default {
-    name: 'App'
+    name: 'App',
+    components: {
+        Search
+    }
 }
 </script>
