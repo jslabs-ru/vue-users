@@ -21,6 +21,7 @@
     "@vue/cli-service": "^4.5.10",
     "babel-loader": "^8.2.2",
     "chai": "^4.2.0",
+    "connect-history-api-fallback": "^1.6.0",
     "console-stamp": "^0.2.9",
     "css-loader": "^5.0.1",
     "express": "^4.17.1",
