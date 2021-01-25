@@ -18,15 +18,25 @@ export default {
     },
     mounted () {
         let i = 0;
-        let interval = setInterval(() => {
-            this.addElement(i, moment().unix());
+        this.interval = setInterval(() => {
+            let timestamp = moment().unix();
+            this.addElement(i, timestamp);
             i++;
-            if(i > 5) clearInterval(interval);
+            if(i > 3) {
+                this.truncate(0);
+                i = 0;
+            }
         }, 1000)
+    },
+    destroy () {
+        clearInterval(this.interval);
     },
     methods: {
         addElement (index, value) {
             this.$set(this.items, index, value);
+        },
+        truncate (length) {
+            this.items.splice(length);
         }
     }
 }
