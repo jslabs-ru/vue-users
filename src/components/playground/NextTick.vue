@@ -1,8 +1,6 @@
 <template>
     <div>
-        <div class="alert alert-warning" role="alert">
-            {{ status }}
-        </div>
+        <div class="alert alert-warning" role="alert">{{ status }}</div>
         <span ref="message-container">{{ message }}</span>
     </div>
 </template>
