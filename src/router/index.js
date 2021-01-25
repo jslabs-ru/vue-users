@@ -6,6 +6,9 @@ import UserAccount from '@/components/users/UserAccount.vue';
 import AddUser from '@/components/users/AddUser.vue';
 import NotFound from '@/components/errors/404.vue';
 
+/* playground components */
+import ArrayReactivity from '@/components/playground/ArrayReactivity.vue';
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -24,6 +27,10 @@ const routes = [
     {
         path: '/admin/add_user',
         component: AddUser
+    },
+    {
+        path: '/playground/array_reactivity',
+        component: ArrayReactivity
     },
     {
         path: '*',
