@@ -1,5 +1,3 @@
 <template>
-    <div>
-        Page is not found
-    </div>
+    <div class="alert alert-danger" role="alert">Page is not found</div>
 </template>
