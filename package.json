@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service --port 8081 serve",
     "build": "vue-cli-service build",
-    "start": "HMR=1 nodemon ./server",
+    "watch": "HMR=1 nodemon ./server",
+    "start": "HMR=1 node ./server",
     "test": "RUN_MOCHA_TESTS=1 node ./runner"
   },
   "keywords": [
