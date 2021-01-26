@@ -6,7 +6,7 @@
     "serve": "vue-cli-service --port 8081 serve",
     "build": "vue-cli-service build",
     "watch": "HMR=1 PORT=8081 nodemon ./server",
-    "start": "PORT=8080 node ./server-prod",
+    "start": "PORT=5000 node ./server-prod",
     "test": "RUN_MOCHA_TESTS=1 node ./runner"
   },
   "keywords": [

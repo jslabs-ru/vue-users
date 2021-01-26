@@ -5,7 +5,7 @@ const history = require('connect-history-api-fallback');
 const app = express();
 const staticFileMiddleware = express.static('dist');
 
-const PORT = parseInt(process.env.PORT) || 8080;
+const PORT = parseInt(process.env.PORT) || 5000;
 
 const historyMiddleware = history({
     disableDotRule: true,
