@@ -7,7 +7,6 @@ const NODE_ENV = process.env.NODE_ENV;
 const HMR = process.env.HMR
 
 const plugins = [
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en|ru/),
     new VueLoaderPlugin()
 ];
 

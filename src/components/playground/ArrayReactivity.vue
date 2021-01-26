@@ -7,7 +7,9 @@
 </template>
 
 <script>
-import moment from 'moment';
+function getTimestamp() {
+    return Math.floor(Date.now() / 1000);
+}
 
 export default {
     name: 'ArrayReactivity',
@@ -19,7 +21,7 @@ export default {
     mounted () {
         let i = 0;
         this.interval = setInterval(() => {
-            let timestamp = moment().unix();
+            let timestamp = getTimestamp();
             this.addElement(i, timestamp);
             i++;
             if(i > 3) {
