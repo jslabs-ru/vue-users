@@ -7,6 +7,7 @@ import AddUser from '@/components/users/AddUser.vue';
 import NotFound from '@/components/errors/404.vue';
 
 /* playground components */
+import Playground from '@/components/playground/Playground.vue';
 import ArrayReactivity from '@/components/playground/ArrayReactivity.vue';
 import NextTick from '@/components/playground/NextTick.vue';
 import RenderFunction from '@/components/playground/RenderFunction.vue';
@@ -29,6 +30,10 @@ const routes = [
     {
         path: '/admin/add_user',
         component: AddUser
+    },
+    {
+        path: '/playground',
+        component: Playground
     },
     {
         path: '/playground/array_reactivity',
