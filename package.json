@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "Vue.js quick start",
   "scripts": {
-    "start": "vue-cli-service --port 8081 serve",
+    "serve": "vue-cli-service --port 8081 serve",
     "build": "vue-cli-service build",
-    "dev-server": "HMR=1 nodemon ./server",
+    "start": "HMR=1 nodemon ./server",
     "test": "RUN_MOCHA_TESTS=1 node ./runner"
   },
   "keywords": [
