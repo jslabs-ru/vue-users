@@ -8,6 +8,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 Vue.use(BootstrapVue);
 
+Vue.config.devtools = false;
+Vue.config.productionTip = false;
+
 new Vue({
     render: (h) => h(App),
     components: { App },
