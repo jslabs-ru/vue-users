@@ -41,5 +41,9 @@
     "moment": "^2.29.1",
     "vue": "^2.6.12",
     "vue-router": "^3.4.9"
+  },
+  "main": "server.js",
+  "engines": {
+    "node": "12.x"
   }
 }
