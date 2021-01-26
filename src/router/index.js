@@ -9,6 +9,7 @@ import NotFound from '@/components/errors/404.vue';
 /* playground components */
 import ArrayReactivity from '@/components/playground/ArrayReactivity.vue';
 import NextTick from '@/components/playground/NextTick.vue';
+import RenderFunction from '@/components/playground/RenderFunction.vue';
 
 Vue.use(VueRouter);
 
@@ -36,6 +37,10 @@ const routes = [
     {
         path: '/playground/next_tick',
         component: NextTick
+    },
+    {
+        path: '/playground/render_function',
+        component: RenderFunction
     },
     {
         path: '*',
