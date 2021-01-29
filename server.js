@@ -13,7 +13,7 @@ const app = express();
 const staticFileMiddleware = express.static('public');
 const compiler = webpack(config);
 
-const PORT = process.env.PORT || 8080;
+const PORT = parseInt(process.env.PORT) || 8080;
 
 function rewriteIndex() {
     const DELIMITER = '</body>';
