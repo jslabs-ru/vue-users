@@ -5,18 +5,21 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'UsersList',
     data () {
         return {
-            users: [
-                'Alice',
-                'Robert',
-                'John',
-                'Lucy',
-                'Michael'
-            ]
+            users: []
         }
+    },
+    created () {
+        axios({
+            url: '/api/v1/users'
+        }).then(res => {
+            this.users = res.data;
+        })
     }
 }
 </script>
