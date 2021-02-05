@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Vue.js quick start",
   "scripts": {
-    "serve": "npm run server-api | vue-cli-service --port 8081 serve",
+    "serve": "npm run server-api | npm run vcli-service",
+    "vcli-service": "vue-cli-service --port 8081 serve",
     "build": "vue-cli-service build",
     "watch": "HMR=1 PORT=8081 nodemon ./server",
     "start": "node ./server-prod",
