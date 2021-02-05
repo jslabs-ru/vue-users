@@ -9,6 +9,7 @@
                 <b-navbar-nav>
                     <b-nav-item to="/users">Users</b-nav-item>
                     <b-nav-item to="/playground">Playground</b-nav-item>
+                    <AuthStatus />
                 </b-navbar-nav>
                 <Search />
             </b-collapse>
@@ -20,11 +21,13 @@
 
 <script>
 import Search from '@/components/Search.vue';
+import AuthStatus from '@/components/AuthStatus.vue';
 
 export default {
     name: 'App',
     components: {
-        Search
+        Search,
+        AuthStatus
     }
 }
 </script>
