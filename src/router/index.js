@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '@/components/main/Home.vue';
 import Users from '@/components/users/Users.vue';
 import UserAccount from '@/components/users/UserAccount.vue';
+import Profile from '@/components/users/Profile.vue';
 import AddUser from '@/components/users/AddUser.vue';
 import NotFound from '@/components/errors/404.vue';
 
@@ -28,7 +29,13 @@ const routes = [
     },
     {
         path: '/users/:user',
-        component: UserAccount
+        component: UserAccount,
+        beforeEnter: authGuard
+    },
+    {
+        path: '/profile',
+        component: Profile,
+        beforeEnter: authGuard
     },
     {
         path: '/admin/add_user',
