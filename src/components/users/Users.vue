@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h5>Our users:</h5>
         <UsersList />
     </div>
 </template>
