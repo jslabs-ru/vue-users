@@ -10,7 +10,9 @@
         <b-nav-item
             v-else
             @click.prevent="login"
-        >Log In</b-nav-item>
+        >
+            <span v-if="!$auth.loading">Log In</span>
+        </b-nav-item>
     </div>
 </template>
 
