@@ -21,7 +21,7 @@
 
 <script>
 import Search from '@/components/Search.vue';
-import AuthStatus from '@/components/AuthStatus.vue';
+import AuthStatus from '@/components/auth/AuthStatus.vue';
 
 export default {
     name: 'App',

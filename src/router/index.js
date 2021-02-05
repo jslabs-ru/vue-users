@@ -3,9 +3,11 @@ import VueRouter from 'vue-router';
 import Home from '@/components/main/Home.vue';
 import Users from '@/components/users/Users.vue';
 import UserAccount from '@/components/users/UserAccount.vue';
-import Profile from '@/components/users/Profile.vue';
 import AddUser from '@/components/users/AddUser.vue';
 import NotFound from '@/components/errors/404.vue';
+
+import Profile from '@/components/auth/Profile.vue';
+import Logout from '@/components/auth/Logout.vue';
 
 import { authGuard } from "@/auth";
 
@@ -36,6 +38,10 @@ const routes = [
         path: '/profile',
         component: Profile,
         beforeEnter: authGuard
+    },
+    {
+        path: '/logout',
+        component: Logout,
     },
     {
         path: '/admin/add_user',
