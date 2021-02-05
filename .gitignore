@@ -2,3 +2,5 @@ node_modules
 public/index.html
 dist/*
 test/*
+
+authConfig.json
