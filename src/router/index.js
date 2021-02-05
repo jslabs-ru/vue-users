@@ -6,6 +6,8 @@ import UserAccount from '@/components/users/UserAccount.vue';
 import AddUser from '@/components/users/AddUser.vue';
 import NotFound from '@/components/errors/404.vue';
 
+import { authGuard } from "@/auth";
+
 /* playground components */
 import Playground from '@/components/playground/Playground.vue';
 import ArrayReactivity from '@/components/playground/ArrayReactivity.vue';
@@ -21,7 +23,8 @@ const routes = [
     },
     {
         path: '/users',
-        component: Users
+        component: Users,
+        beforeEnter: authGuard
     },
     {
         path: '/users/:user',
