@@ -5,6 +5,7 @@ import chaiMatch from 'chai-match';
 import puppeteer from 'puppeteer';
 import cheerio from 'cheerio';
 import { fork } from 'child_process';
+import sleep from 'sleep';
 import runCommand from './utils/runCommand';
 
 chai.use(chaiMatch);
@@ -54,7 +55,39 @@ describe('Routing system', () => {
             })
     });
 
+    it('should open playground page with render function example & check css class after button click', async () => {
+        await page.goto(`${BASE_URL}/playground/render_function`);
+        await page
+            .waitForSelector(PAGE_ROOT_SELECTOR, {visible: true})
+            .then(async () => {
+                await page.evaluate(() => {
+                    const elements = document.getElementsByClassName('btn-click-me');
+                    const button = elements[0];
+                    if(button) {
+                        var i = 0;
+                        while(i < 9) {
+                            button.click();
+                            i++
+                        }
+                    }
+                });
+
+                await page
+                    .waitForSelector('.message-container--blue', {visible: true})
+                    .then(() => {
+                        expect(true).to.be.ok;
+                    })
+                    .catch(error => {
+                        console.log('ERROR', error);
+                    });
+            })
+            .catch(error => {
+                console.log('ERR:', error);
+            })
+    });
+
     after(async () => {
+        sleep.sleep(3); /* sleep 3 seconds */
         await page.close();
         await browser.close();
         appProcess.send('shutdown');
