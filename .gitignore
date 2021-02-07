@@ -1,6 +1,7 @@
 node_modules
 public/index.html
 dist/*
-test/*
+test/routing/*
+test/store/*
 
 authConfig.json
