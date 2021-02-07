@@ -46,7 +46,7 @@ describe('Routing system', () => {
                     const text = $(elements[0]).text();
                     expect(text).to.match(/MAIN - Home page/);
                 } else {
-                    console.log('Not found ' + selector);
+                    console.log(`Not found selector: ${PAGE_ROOT_SELECTOR}`);
                 }
             })
             .catch(error => {
