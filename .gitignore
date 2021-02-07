@@ -3,5 +3,3 @@ public/index.html
 dist/*
 test/routing/*
 test/store/*
-
-authConfig.json
