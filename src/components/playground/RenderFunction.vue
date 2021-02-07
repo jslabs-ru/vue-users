@@ -8,8 +8,8 @@ export default {
     computed: {
         backgroundColor () {
             return {
-                'orange': this.clickCount % 2 === 0,
-                'blue': this.clickCount % 2 !== 0
+                'message-container--orange': this.clickCount % 2 === 0,
+                'message-container--blue': this.clickCount % 2 !== 0
             };
         }
     },
@@ -21,7 +21,7 @@ export default {
     render (createElement) {
         const button = createElement('button', {
             type: 'button',
-            class: 'btn btn-primary',
+            class: 'btn btn-primary btn-click-me',
             on: {
                 click: this.onClick
             }
@@ -35,7 +35,7 @@ export default {
         ]);
 
         return createElement('div', {
-            class: 'root',
+            class: 'page-root',
         }, [button, counter])
     }
 }
@@ -45,10 +45,10 @@ export default {
 .root {
     margin-top: 20px;
 }
-.orange {
+.message-container--orange {
     background: #FFCC99
 }
-.blue {
+.message-container--blue {
     background: #CCFFFF
 }
 </style>
