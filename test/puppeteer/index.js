@@ -13,6 +13,7 @@ chai.use(chaiMatch);
 const PORT = 5000;
 const BASE_URL = `http://localhost:${PORT}`;
 const PAGE_ROOT_SELECTOR = '.page-root';
+const HEADLESS = true; /* change to false in demonstration mode */
 
 let browser, page, appProcess;
 
@@ -20,7 +21,7 @@ describe('Routing system', () => {
     before(async () => {
         appProcess = fork(path.resolve(__dirname, '..', '..', 'server-prod.js'));
         browser = await puppeteer.launch({
-            headless: true,
+            headless: HEADLESS,
             args: [
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
@@ -46,6 +47,7 @@ describe('Routing system', () => {
                 if(elements[0]) {
                     const text = $(elements[0]).text();
                     expect(text).to.match(/MAIN - Home page/);
+                    if(!HEADLESS) sleep.sleep(2);
                 } else {
                     console.log(`Not found selector: ${PAGE_ROOT_SELECTOR}`);
                 }
@@ -76,6 +78,7 @@ describe('Routing system', () => {
                     .waitForSelector('.message-container--blue', {visible: true})
                     .then(() => {
                         expect(true).to.be.ok;
+                        if(!HEADLESS) sleep.sleep(2);
                     })
                     .catch(error => {
                         console.log('ERROR', error);
@@ -87,7 +90,6 @@ describe('Routing system', () => {
     });
 
     after(async () => {
-        sleep.sleep(3); /* sleep 3 seconds */
         await page.close();
         await browser.close();
         appProcess.send('shutdown');
