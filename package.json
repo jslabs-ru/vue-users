@@ -9,7 +9,8 @@
     "watch": "HMR=1 PORT=8081 nodemon ./server",
     "start": "node ./server-prod",
     "server-api": "PORT=8888 nodemon ./server-api",
-    "test": "RUN_MOCHA_TESTS=1 node ./runner"
+    "test": "RUN_MOCHA_TESTS=1 node ./runner",
+    "test-with-puppeteer": "./node_modules/mocha/bin/mocha --require @babel/register ./test/puppeteer/index.js"
   },
   "keywords": [
     "vue.js"
