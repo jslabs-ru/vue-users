@@ -50,7 +50,8 @@
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "vue": "^2.6.12",
-    "vue-router": "^3.4.9"
+    "vue-router": "^3.4.9",
+    "vuedraggable": "^2.24.3"
   },
   "main": "server.js",
   "engines": {
