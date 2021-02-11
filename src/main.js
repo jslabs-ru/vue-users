@@ -7,6 +7,8 @@ import { Auth0Plugin } from './auth';
 import 'bootstrap/dist/css/bootstrap-reboot.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
+import '@/styles/main.css';
+
 Vue.use(BootstrapVue);
 
 const [
