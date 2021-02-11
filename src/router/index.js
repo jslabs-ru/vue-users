@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '@/components/main/Home.vue';
+import TasksStagesPanel from '@/components/tasks/TasksStagesPanel.vue';
 import Users from '@/components/users/Users.vue';
 import UserAccount from '@/components/users/UserAccount.vue';
 import AddUser from '@/components/users/AddUser.vue';
@@ -23,6 +24,10 @@ const routes = [
     {
         path: '/',
         component: Home
+    },
+    {
+        path: '/tasks/stages',
+        component: TasksStagesPanel
     },
     {
         path: '/users',
