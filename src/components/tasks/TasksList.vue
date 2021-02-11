@@ -11,12 +11,12 @@
           v-for="element in list"
           :key="element.name"
         >
-          {{ element.name }}
+          {{ element.name }} <slot></slot>
         </div>
 
         <div
           slot="header"
-          class="btn-group list-group-item list-group-header"
+          class="list-group-header btn-group list-group-item"
           role="group"
           aria-label="Basic example"
         >
@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style>
-.list-group-header {
-    background-color: #FFCC99;
+div.list-group-header {
+    background: #FFCC99;
 }
 </style>

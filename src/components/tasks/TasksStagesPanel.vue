@@ -26,7 +26,12 @@
                 :stageName="stages[3]"
                 :list='stageForthList'
                 :trackTasks="trackTasks"
-            />
+            >
+                <b-button variant="danger"
+                    size="sm"
+                    @click.prevent="onDeploy"
+                >Deploy</b-button>
+            </TasksList>
         </div>
     </div>
 </template>
@@ -79,6 +84,9 @@ export default {
                 console.log(this[item].length);
             });
 
+        },
+        onDeploy () {
+            console.log('onDeploy...');
         }
     }
 }
