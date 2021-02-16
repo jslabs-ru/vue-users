@@ -9,6 +9,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import '@/styles/main.css';
 
+Vue.config.devtools = true;
+Vue.config.productionTip = false;
+
 Vue.use(BootstrapVue);
 
 const [
@@ -33,9 +36,6 @@ Vue.use(Auth0Plugin, {
         )
     }
 });
-
-Vue.config.devtools = false;
-Vue.config.productionTip = false;
 
 new Vue({
     render: (h) => h(App),
