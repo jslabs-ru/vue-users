@@ -1,7 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV;
 const HMR = process.env.HMR
@@ -23,15 +22,6 @@ if(HMR) {
 var config = {
     mode: NODE_ENV === 'production' ? 'production' : 'development',
     optimization: {
-        minimizer: [
-            new TerserPlugin({
-                terserOptions: {
-                    output: {
-                        comments: false,
-                    },
-                },
-            })
-        ],
         minimize: NODE_ENV === 'production' ? true : false
     },
     context: __dirname,
@@ -46,7 +36,7 @@ var config = {
         client
     },
     output: {
-        path: path.join(__dirname, '/../public/js'),
+        path: path.join(__dirname, '/../dist/js'),
         publicPath: '/js/',
         filename: '[name].js'
     },
