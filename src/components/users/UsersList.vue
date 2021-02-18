@@ -1,6 +1,8 @@
 <template>
     <ul class="users-list">
-        <li v-for="(name, index) in users">{{ name }}</li>
+            <li v-for="(name, index) in users">
+                <router-link :to="'/users/' + name">{{ name }}</router-link>
+            </li>
     </ul>
 </template>
 

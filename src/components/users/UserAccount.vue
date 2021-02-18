@@ -1,16 +1,15 @@
 <template>
-    <div>
-        {{ user }} account
-    </div>
+    <div><span class="user-name">{{ user }}</span> account</div>
 </template>
 
 <script>
+import traceCurrentRoute from '@/mixins/traceCurrentRoute';
 
 export default {
     name: 'UserAccount',
-    components: {
-
-    },
+    mixins: [
+        traceCurrentRoute
+    ],
     computed: {
         user () {
             return this.$route.params['user'];
@@ -18,3 +17,9 @@ export default {
     }
 }
 </script>
+
+<style>
+.user-name {
+    color: red;
+}
+</style>
