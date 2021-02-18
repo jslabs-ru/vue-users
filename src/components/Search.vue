@@ -1,6 +1,6 @@
 <template>
     <b-navbar-nav class="ml-auto">
-        <b-nav-form>
+        <b-nav-form v-on:submit="onSearchSubmit">
             <b-form-input size="sm" class="mr-sm-2"
                 placeholder="Search"
                 v-model="user"
