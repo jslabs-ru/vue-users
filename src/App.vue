@@ -16,7 +16,9 @@
             </b-collapse>
         </b-navbar>
 
+        <RouterView name="errors" />
         <RouterView />
+        
     </b-container>
 </template>
 

@@ -5,6 +5,8 @@ import TasksStagesPanel from '@/components/tasks/TasksStagesPanel.vue';
 import Users from '@/components/users/Users.vue';
 import UserAccount from '@/components/users/UserAccount.vue';
 import AddUser from '@/components/users/AddUser.vue';
+
+import Errors from '@/components/errors/Errors.vue';
 import NotFound from '@/components/errors/404.vue';
 
 import Profile from '@/components/auth/Profile.vue';
@@ -29,7 +31,10 @@ const routes = [
     },
     {
         path: '/tasks/stages',
-        component: TasksStagesPanel
+        components: {
+            default: TasksStagesPanel,
+            errors: Errors
+        }
     },
     {
         path: '/users',
