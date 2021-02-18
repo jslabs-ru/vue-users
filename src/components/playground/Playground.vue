@@ -23,6 +23,10 @@ export default {
                 {
                     path: '/playground/render_function',
                     name: 'RenderFunction'
+                },
+                {
+                    path: '/playground/directives',
+                    name: 'Directives'
                 }
             ]
         }

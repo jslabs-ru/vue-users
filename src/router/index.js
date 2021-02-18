@@ -17,6 +17,7 @@ import Playground from '@/components/playground/Playground.vue';
 import ArrayReactivity from '@/components/playground/ArrayReactivity.vue';
 import NextTick from '@/components/playground/NextTick.vue';
 import RenderFunction from '@/components/playground/RenderFunction.vue';
+import Directives from '@/components/playground/Directives.vue';
 
 Vue.use(VueRouter);
 
@@ -67,6 +68,10 @@ const routes = [
     {
         path: '/playground/render_function',
         component: RenderFunction
+    },
+    {
+        path: '/playground/directives',
+        component: Directives
     },
     {
         path: '*',
