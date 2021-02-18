@@ -5,8 +5,9 @@
                 placeholder="Search"
                 v-model="user"
             ></b-form-input>
+
             <b-button size="sm" class="my-2 my-sm-0"
-                v-on:click.prev="onSearchSubmit"
+                v-on:click="onSearchSubmit"
             >Search</b-button>
         </b-nav-form>
     </b-navbar-nav>
@@ -14,6 +15,7 @@
 
 <script>
 import noop from '@/utils/noop';
+
 export default {
     data () {
         return {
@@ -21,8 +23,9 @@ export default {
         }
     },
     methods: {
-        onSearchSubmit () {
-            this.$router.push({path: `/users/${this.user}`}, noop)
+        onSearchSubmit (e) {
+            this.$router.push({path: `/users/${this.user}`}, noop);
+            e.preventDefault();
         }
     }
 }
