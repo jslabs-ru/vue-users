@@ -1,5 +1,5 @@
 <template>
-    <div><span class="user-name">{{ user }}</span> account</div>
+    <div><span class="user-name">{{ user }}</span>'s account</div>
 </template>
 
 <script>
