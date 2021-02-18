@@ -27,6 +27,10 @@ export default {
                 {
                     path: '/playground/directives',
                     name: 'Directives'
+                },
+                {
+                    path: '/playground/computed',
+                    name: 'Computed'
                 }
             ]
         }

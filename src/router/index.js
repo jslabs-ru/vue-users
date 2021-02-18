@@ -18,6 +18,7 @@ import ArrayReactivity from '@/components/playground/ArrayReactivity.vue';
 import NextTick from '@/components/playground/NextTick.vue';
 import RenderFunction from '@/components/playground/RenderFunction.vue';
 import Directives from '@/components/playground/Directives.vue';
+import Computed from '@/components/playground/Computed.vue';
 
 Vue.use(VueRouter);
 
@@ -72,6 +73,10 @@ const routes = [
     {
         path: '/playground/directives',
         component: Directives
+    },
+    {
+        path: '/playground/computed',
+        component: Computed
     },
     {
         path: '*',
