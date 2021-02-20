@@ -32,18 +32,7 @@ app.post('/api/v1/users', async function(req, res) {
     res.json({});
 })
 
-async function assertDatabaseConnection(db) {
-    return db.raw('select 1+1 as result')
-        .catch((err) => {
-            console.log('[Fatal] Failed to establish connection to database! Exiting...');
-            console.log(err);
-            process.exit(1);
-        });
-}
-
 async function startServer(db) {
-    await assertDatabaseConnection(db);
-
     app.set('db', db);
 
     app.listen(PORT, function() {
