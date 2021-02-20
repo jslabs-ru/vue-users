@@ -8,7 +8,7 @@
     "build": "vue-cli-service build",
     "build-with-webpack": "gulp buildWithWebpack",
     "watch": "HMR=1 PORT=8081 nodemon ./server",
-    "start": "node ./server-prod",
+    "start": "npm run populate && node ./server-prod",
     "server-api": "PORT=8888 nodemon ./server-api",
     "populate": "node ./scripts/populate",
     "test": "RUN_MOCHA_TESTS=1 node ./runner",
