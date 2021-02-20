@@ -26,25 +26,16 @@
 </template>
 
 <script>
-import axios from 'axios';
+import noop from '@/utils/noop';
 
 export default {
     name: 'UsersList',
-    data () {
-        return {
-            users: []
-        }
-    },
-    created () {
-        axios({
-            url: '/api/v1/users'
-        }).then(res => {
-            this.users = res.data;
-        })
+    props: {
+        users: {type: Array}
     },
     methods: {
         openUserAccount ({ userid }) {
-            this.$router.push({path: `/users/${userid}`});
+            this.$router.push({path: `/users/${userid}`}, noop);
         },
         editUserData (user) {
             console.log('editUserData...', user);
