@@ -1,18 +1,36 @@
 <template>
-    <div><span class="user-name">{{ user }}</span>'s account</div>
+    <div v-if="accountData">
+        <span class="user-name">{{ accountData.name }}</span>'s account
+    </div>
 </template>
 
 <script>
-import traceCurrentRoute from '@/mixins/traceCurrentRoute';
+import UserService from '@/services/userService';
 
 export default {
     name: 'UserAccount',
-    mixins: [
-        traceCurrentRoute
-    ],
+    data () {
+        return {
+            accountData: null
+        }
+    },
+    beforeRouteEnter (to, from, next) {
+        UserService.getCurrentUserAccountData(to.params.userid)
+            .then(accountData => {
+                console.log('DATA', accountData);
+                next(vm => {
+                    vm.setCurrentUserAccountData(accountData)
+                })
+            })
+    },
+    methods: {
+        setCurrentUserAccountData (accountData) {
+            this.accountData = accountData;
+        }
+    },
     computed: {
-        user () {
-            return this.$route.params['user'];
+        userid () {
+            return this.$route.params['userid'];
         }
     }
 }
