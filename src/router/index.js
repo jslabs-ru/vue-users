@@ -39,12 +39,12 @@ const routes = [
     {
         path: '/users',
         component: Users,
-        beforeEnter: authGuard
+        // beforeEnter: authGuard       /* switch on if nessesary */
     },
     {
-        path: '/users/:user',
+        path: '/users/:userid',
         component: UserAccount,
-        beforeEnter: authGuard
+        // beforeEnter: authGuard       /* switch on if nessesary */
     },
     {
         path: '/profile',
