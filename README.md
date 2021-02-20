@@ -5,3 +5,6 @@
 
 ## heroku deploy:
 ```git push heroku master```
+
+## populate users table in filesystem database:
+```npm run populate```
