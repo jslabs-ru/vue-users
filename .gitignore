@@ -1,5 +1,9 @@
+.vscode/*
+
 node_modules
 public/index.html
 dist/*
 test/routing/*
 test/store/*
+
+data.db
