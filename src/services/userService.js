@@ -14,10 +14,8 @@ const UserService = {
     },
 
     getCurrentUserAccountData (userid) {
-        let url = `${USERS_ENDPOINT}/${userid}`;
-        console.log(url);
         return axios({
-            url
+            url: `${USERS_ENDPOINT}/${userid}`
         }).then(res => {
             return res.data;
         }).catch(error => {
