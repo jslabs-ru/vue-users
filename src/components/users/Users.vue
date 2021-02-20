@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h5>Our users:</h5>
         <UsersList v-bind:users="users" />
     </div>
 </template>
