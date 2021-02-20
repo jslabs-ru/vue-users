@@ -33,7 +33,6 @@
     "cheerio": "^1.0.0-rc.5",
     "console-stamp": "^0.2.9",
     "css-loader": "^5.0.1",
-    "faker": "^5.4.0",
     "gulp": "^4.0.2",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.7",
@@ -60,7 +59,8 @@
     "vue": "^2.6.12",
     "vue-router": "^3.4.9",
     "vuedraggable": "^2.24.3",
-    "when": "^3.7.8"
+    "when": "^3.7.8",
+    "faker": "^5.4.0"
   },
   "main": "server.js",
   "engines": {
