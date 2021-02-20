@@ -8,7 +8,11 @@ const { domain, clientId, audience } = require('./authConfig.json');
 
 module.exports = {
     devServer: {
-        proxy: 'http://localhost:8888'
+        proxy: {
+            '^/api': {
+                target: 'http://localhost:8888'
+            }
+        }
     },
     chainWebpack: config => {
         config.plugin('define').tap(definitions => {
