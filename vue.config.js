@@ -9,7 +9,7 @@ const { domain, clientId, audience } = require('./authConfig.json');
 module.exports = {
     devServer: {
         proxy: {
-            '^/api': {
+            '^/api/v1': {
                 target: 'http://localhost:8888'
             }
         }
