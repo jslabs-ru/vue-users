@@ -2,11 +2,18 @@ var path = require('path');
 var webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
+const { domain, clientId, audience } = require('../authConfig.json');
+
 const NODE_ENV = process.env.NODE_ENV;
-const HMR = process.env.HMR
+const HMR = process.env.HMR;
 
 const plugins = [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+        DOMAIN: JSON.stringify(domain),
+        CLIENT_ID: JSON.stringify(clientId),
+        AUDIENCE: JSON.stringify(audience)
+    })
 ];
 
 const client = [
