@@ -21,6 +21,19 @@ const UserService = {
         }).catch(error => {
             throw new Error('[UserService getUserAccountData]' + error.message)
         })
+    },
+
+    saveAccountData (data) {
+        let { userid } = data;
+
+        return axios({
+            url: `${USERS_ENDPOINT}/${userid}`,
+            method: 'put'
+        }).then(res => {
+            return res.data;
+        }).catch(error => {
+            throw new Error('[UserService getUserAccountData]' + error.message)
+        })
     }
 }
 
