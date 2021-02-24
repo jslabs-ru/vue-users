@@ -15,7 +15,7 @@ export default {
         }
     },
     beforeRouteEnter (to, from, next) {
-        UserService.getCurrentUserAccountData(to.params.userid)
+        UserService.getUserAccountData(to.params.userid)
             .then(accountData => {
                 next(vm => {
                     vm.setCurrentUserAccountData(accountData)

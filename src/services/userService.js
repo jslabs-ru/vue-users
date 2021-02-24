@@ -13,13 +13,13 @@ const UserService = {
         })
     },
 
-    getCurrentUserAccountData (userid) {
+    getUserAccountData (userid) {
         return axios({
             url: `${USERS_ENDPOINT}/${userid}`
         }).then(res => {
             return res.data;
         }).catch(error => {
-            throw new Error('[UserService getCurrentUserAccountData]' + error.message)
+            throw new Error('[UserService getUserAccountData]' + error.message)
         })
     }
 }
