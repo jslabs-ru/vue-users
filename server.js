@@ -2,11 +2,14 @@ require('console-stamp')(console, 'HH:MM:ss.l');
 
 const fs = require('fs');
 const moment = require('moment');
+const knex = require('knex');
 const express = require('express');
 const history = require('connect-history-api-fallback');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+
+const createApiRouter = require('./apiRouter');
 const config = require('./src/webpack.config.js');
 
 const app = express();
@@ -51,16 +54,28 @@ app.use((req, res, next) => {
 
 app.use(staticFileMiddleware);
 
-app.get('/api/v1/users', function(req, res) {
-    res.json([
-        'Alice',
-        'Robert',
-        'John',
-        'Lucy',
-        'Michael'
-    ]);
-})
+app.use('/api/v1', createApiRouter(app));
 
-app.listen(PORT, function() {
-    console.log('Dev server is running: http://localhost:%j', PORT);
-});
+async function startServer(db) {
+    app.set('db', db);
+
+    const server = app.listen(PORT, function() {
+        console.log('Server is running: http://localhost:%j', PORT);
+    });
+
+    process.on('message', (message) => {
+        if (message === 'shutdown') {
+            console.log('Stop express server');
+            server.close(() => {
+                process.exit();
+            });
+        }
+    });
+}
+
+startServer(knex({
+    client: 'sqlite3',
+    connection: {
+        filename: './data.db',
+    }
+}));
