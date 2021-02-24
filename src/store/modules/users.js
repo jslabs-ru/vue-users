@@ -15,8 +15,8 @@ const state = {
 }
 
 const actions = {
-    [FETCH_USERS]: UserService.getAll(),
-    [FETCH_USER_ACCOUNT_DATA]: UserService.getUserAccountData(id),
+    [FETCH_USERS]: (context) => UserService.getAll(),
+    [FETCH_USER_ACCOUNT_DATA]: (context, id) => UserService.getUserAccountData(id),
 }
 
 const mutations = {
