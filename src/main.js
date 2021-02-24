@@ -2,6 +2,7 @@ import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 import App from '@/App.vue';
 import router from '@/router';
+import store from '@/store';
 import { Auth0Plugin } from '@/auth';
 
 import 'bootstrap/dist/css/bootstrap-reboot.min.css';
@@ -40,5 +41,6 @@ Vue.use(Auth0Plugin, {
 new Vue({
     render: (h) => h(App),
     components: { App },
-    router
+    router,
+    store
 }).$mount('#app');
