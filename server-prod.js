@@ -3,6 +3,8 @@ const knex = require('knex');
 const express = require('express');
 const history = require('connect-history-api-fallback');
 
+const createApiRouter = require('./apiRouter');
+
 const app = express();
 const staticFileMiddleware = express.static('dist');
 
@@ -26,26 +28,7 @@ app.use((req, res, next) => {
 
 app.use(staticFileMiddleware);
 
-app.get('/api/v1/users', async function(req, res) {
-    const db = app.get('db');
-    const users = await db(USERS);
-    res.json(users);
-})
-
-app.get('/api/v1/users/:userid', async function(req, res) {
-    const db = app.get('db');
-    const { userid } = req.params;
-
-    const users = await db(USERS).where('userid', userid);
-
-    if(users.length) {
-        res.status(200).json(users[0]);
-    } else {
-        res.status(404).json({
-            error: 'Not found'
-        });
-    }
-})
+app.use('/api/v1', createApiRouter(app));
 
 async function startServer(db) {
     app.set('db', db);
