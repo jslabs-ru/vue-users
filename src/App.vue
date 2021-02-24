@@ -16,21 +16,49 @@
             </b-collapse>
         </b-navbar>
 
+        <MessagesPannel
+            v-bind:warn = "warn"
+            v-bind:error = "error"
+            v-bind:info = "info"
+        />
+
         <RouterView name="errors" />
         <RouterView />
-        
+
     </b-container>
 </template>
 
 <script>
+import Vue from 'vue';
+
 import Search from '@/components/Search.vue';
+import MessagesPannel from '@/components/MessagesPannel.vue';
 import AuthStatus from '@/components/auth/AuthStatus.vue';
 
 export default {
     name: 'App',
     components: {
         Search,
+        MessagesPannel,
         AuthStatus
+    },
+    data () {
+        return {
+            warn: null,
+            error: null,
+            info: null
+        }
+    },
+    created () {
+        Vue.config.warnHandler = (warn, vm, info) => {
+            this.warn = warn;
+            this.info = info;
+        };
+
+        Vue.config.errorHandler = (error, vm, info) => {
+            this.error = error;
+            this.info = info;
+        };
     }
 }
 </script>
