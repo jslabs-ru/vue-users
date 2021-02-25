@@ -19,12 +19,10 @@ export default {
             users: []
         }
     },
-    beforeRouteEnter (to, from, next) {
+    created () {
         UserService.getAll()
             .then(users => {
-                next(vm => {
-                    vm.setUsers(users)
-                })
+                this.users = users;
             })
     },
     methods: {
