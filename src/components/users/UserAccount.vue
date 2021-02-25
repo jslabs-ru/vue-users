@@ -122,9 +122,6 @@ export default {
         onSave () {
             if(!this.nameError && !this.emailError) {
                 UserService.saveAccountData(this.accountData)
-                    .then(res => {
-
-                    })
             }
         },
         onDelete () {
