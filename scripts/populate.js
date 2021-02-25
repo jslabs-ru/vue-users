@@ -7,6 +7,7 @@ const knex = require('knex')({
     connection: {
         filename: './data.db',
     },
+    useNullAsDefault: true
 });
 
 const USERS = 'users';
