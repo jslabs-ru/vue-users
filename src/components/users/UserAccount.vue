@@ -1,38 +1,49 @@
 <template>
-    <form
-        v-if="accountData"
-        v-on:submit.prevent="onSave"
-    >
-        <div class="form-group">
-            <label for="account-input-name">Name</label>
-            <input
-                type="text"
-                class="form-control"
-                id="account-input-name"
-                v-bind:disabled="isDisabled"
-                v-model="name"
-            />
-            <small v-show="nameError" class="form-text danger">{{ nameErrorMessage }}</small>
-        </div>
+    <b-tabs content-class="mt-3">
+        <b-tab title="Edit" >
+            <form
+                v-if="accountData"
+                v-on:submit.prevent="onSave"
+            >
+                <div class="form-group">
+                    <label for="account-input-name">Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="account-input-name"
+                        v-bind:disabled="isDisabled"
+                        v-model="name"
+                    />
+                    <small v-show="nameError" class="form-text danger">{{ nameErrorMessage }}</small>
+                </div>
 
-        <div class="form-group">
-            <label for="account-input-email">Email</label>
-            <input
-                type="email"
-                class="form-control"
-                id="account-input-email"
-                v-model="email"
-            />
-            <small v-show="emailError" class="form-text danger">{{ emailErrorMessage }}</small>
-        </div>
+                <div class="form-group">
+                    <label for="account-input-email">Email</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="account-input-email"
+                        v-model="email"
+                    />
+                    <small v-show="emailError" class="form-text danger">{{ emailErrorMessage }}</small>
+                </div>
 
-        <button
-            type="submit"
-            class="btn btn-primary"
-            v-if="!nameError && !emailError"
-            v-on:click="onSave"
-        >Save</button>
-    </form>
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    v-if="!nameError && !emailError"
+                    v-on:click="onSave"
+                >Save</button>
+            </form>
+        </b-tab>
+        <b-tab title="Dangerous" >
+            <button
+                type="submit"
+                class="btn btn-danger"
+                v-on:click="onDelete"
+            >Delete this user</button>
+        </b-tab>
+    </b-tabs>
 </template>
 
 <script>
@@ -41,6 +52,8 @@ import UserService from '@/services/userService';
 const EMPTY_EMAIL_ERROR_MESSAGE = 'Email should not be empty';
 const NOT_VALID_EMAIL_ERROR_MESSAGE = 'Email is not valid';
 const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+const CONFIRMATION_DELETE_MESSAGE = 'Delete this user?';
 
 export default {
     name: 'UserAccount',
@@ -103,11 +116,17 @@ export default {
         },
         onSave () {
             if(!this.nameError && !this.emailError) {
-                return UserService.saveAccountData(this.accountData)
+                UserService.saveAccountData(this.accountData)
                     .then(res => {
-                        UserService.getUserAccountData(this.userid).then(res => {
-                            console.log('ACC:', res);
-                        })
+
+                    })
+            }
+        },
+        onDelete () {
+            if (window.confirm(CONFIRMATION_DELETE_MESSAGE)) {
+                UserService.deleteUserAccount(this.userid)
+                    .then(res => {
+                        this.$router.push({path: '/users'}, () => {})
                     })
             }
         }
