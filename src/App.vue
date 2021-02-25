@@ -35,6 +35,8 @@ import Search from '@/components/Search.vue';
 import MessagesPannel from '@/components/MessagesPannel.vue';
 import AuthStatus from '@/components/auth/AuthStatus.vue';
 
+import ApplicationService from '@/services/applicationService';
+
 export default {
     name: 'App',
     components: {
@@ -59,6 +61,10 @@ export default {
             this.error = error;
             this.info = info;
         };
+
+        ApplicationService.ping().catch(error => {
+            alert('Api is not running');
+        })
     }
 }
 </script>
