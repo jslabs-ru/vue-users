@@ -77,9 +77,6 @@ export default {
             .then(accountData => {
                 this.accountData = accountData;
             })
-            .catch(error => {
-
-            })
     },
     computed: {
         userid () {
