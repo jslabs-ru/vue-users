@@ -78,7 +78,8 @@ var config = {
             }
         ]
     },
-    plugins
+    plugins,
+    stats: 'minimal'
 }
 
 module.exports = config;
