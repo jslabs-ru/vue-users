@@ -54,6 +54,19 @@ function createApiRouter(app) {
         });
     })
 
+    router.delete('/users/:userid', async function(req, res) {
+        const db = app.get('db');
+        const { userid } = req.params;
+
+        await db(USERS)
+            .where('userid', userid)
+            .del();
+
+        res.status(200).json({
+            ok: 1
+        });
+    })
+
     router.post('/users', async function(req, res) {
         res.json({});
     })
