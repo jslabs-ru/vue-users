@@ -7,8 +7,14 @@ const USERS = 'users';
 function createApiRouter(app) {
     const router = express.Router();
 
-    router.use(bodyParser.urlencoded({ extended: false })); /* parse application/x-www-form-urlencoded */
-    router.use(bodyParser.json()); /* parse application/json */
+    router.use(bodyParser.json());
+    router.use(bodyParser.urlencoded({ extended: true }));
+
+    router.get('/ping', async function(req, res) {
+        res.json({
+            ok: 1
+        });
+    })
 
     router.get('/users', async function(req, res) {
         const db = app.get('db');
