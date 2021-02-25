@@ -35,8 +35,13 @@
                     v-on:click="onSave"
                 >Save</button>
             </form>
+            <alert v-else class="danger">Account is not found</alert>
+
         </b-tab>
-        <b-tab title="Dangerous" >
+        <b-tab
+            v-if="accountData"
+            title="Dangerous"
+        >
             <button
                 type="submit"
                 class="btn btn-danger"
@@ -71,6 +76,9 @@ export default {
         UserService.getUserAccountData(this.userid)
             .then(accountData => {
                 this.accountData = accountData;
+            })
+            .catch(error => {
+
             })
     },
     computed: {
