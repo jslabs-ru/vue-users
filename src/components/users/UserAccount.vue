@@ -14,7 +14,7 @@
             />
             <small v-show="nameError" class="form-text danger">{{ nameErrorMessage }}</small>
         </div>
-        
+
         <div class="form-group">
             <label for="account-input-email">Email</label>
             <input
@@ -105,7 +105,9 @@ export default {
             if(!this.nameError && !this.emailError) {
                 return UserService.saveAccountData(this.accountData)
                     .then(res => {
-                        console.log('RES...', res);
+                        UserService.getUserAccountData(this.userid).then(res => {
+                            console.log('ACC:', res);
+                        })
                     })
             }
         }
