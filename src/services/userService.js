@@ -28,7 +28,8 @@ const UserService = {
 
         return axios({
             url: `${USERS_ENDPOINT}/${userid}`,
-            method: 'put'
+            method: 'put',
+            data
         }).then(res => {
             return res.data;
         }).catch(error => {
