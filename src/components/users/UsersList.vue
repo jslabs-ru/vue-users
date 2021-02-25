@@ -14,7 +14,7 @@
             >
                 <td scope="row" class="pointer">{{ user.id }}</td>
                 <td scope="row" class="pointer"
-                    v-on:click="openUserAccount(user)"
+                    v-on:click="navigateToUserAccount(user)"
                 >{{ user.name }}</td>
                 <td scope="row" class="pointer">{{ user.email }}</td>
                 <td scope="row" class="pointer"
@@ -34,7 +34,7 @@ export default {
         users: {type: Array}
     },
     methods: {
-        openUserAccount ({ userid }) {
+        navigateToUserAccount ({ userid }) {
             this.$router.push({path: `/users/${userid}`}, noop);
         },
         editUserData (user) {
