@@ -5,21 +5,16 @@
                 <th scope="col">#</th>
                 <th scope="col" class="pointer">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">Edit</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="table-row"
+            <tr class="table-row pointer"
                 v-for="(user, index) in users"
+                v-on:click="navigateToUserAccount(user)"
             >
-                <td scope="row" class="pointer">{{ user.id }}</td>
-                <td scope="row" class="pointer"
-                    v-on:click="navigateToUserAccount(user)"
-                >{{ user.name }}</td>
-                <td scope="row" class="pointer">{{ user.email }}</td>
-                <td scope="row" class="pointer"
-                    v-on:click="editUserData(user)"
-                >edit</td>
+                <td scope="row">{{ user.id }}</td>
+                <td scope="row">{{ user.name }}</td>
+                <td scope="row">{{ user.email }}</td>
             </tr>
         </tbody>
     </table>
@@ -36,9 +31,6 @@ export default {
     methods: {
         navigateToUserAccount ({ userid }) {
             this.$router.push({path: `/users/${userid}`}, noop);
-        },
-        editUserData (user) {
-            console.log('editUserData...', user);
         }
     }
 }
